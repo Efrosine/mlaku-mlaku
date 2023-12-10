@@ -26,12 +26,12 @@ class CloudService {
         .set(data.toJson());
   }
 
-  Future<QuerySnapshot> getAllReservation() async {
+   Stream<QuerySnapshot> getAllReservation()  {
     print('get service');
-    return await _db
+    return  _db
         .collection('users')
         .doc(_prefs.getString('uid'))
         .collection('reservation')
-        .get();
+        .snapshots();
   }
 }

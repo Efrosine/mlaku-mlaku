@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:equatable/equatable.dart';
 
 class HotelsEntity extends Equatable {
@@ -38,6 +39,22 @@ class HotelsEntity extends Equatable {
       price: mod.price ?? price,
       rating: mod.rating ?? rating,
       stars: mod.stars ?? stars,
+    );
+  }
+
+   factory HotelsEntity.fromDocumentSnapshot(DocumentSnapshot snapshot) {
+    return HotelsEntity(
+      // id: snapshot.id,
+      address: snapshot['address'],
+      description: snapshot['description'],
+      id: snapshot['id'],
+      image: snapshot['image'],
+      name: snapshot['name'],
+      rating: snapshot['rating'].runtimeType is double
+          ? snapshot['rating']
+          : snapshot['rating'].toDouble(),
+      price: snapshot['price'],
+      stars: snapshot['stars'],
     );
   }
 

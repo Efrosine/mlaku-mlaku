@@ -54,23 +54,29 @@ class BookingHotelsRepoImpl extends BookingHotelsRepo {
       return const DataError(null);
     }
   }
-
+  
   @override
-  Future<DataState<List<HotelsEntity>, void>> getAllReservation() async {
-    try {
-      final data = await _cloudService.getAllReservation();
-      List<HotelsEntity> listHotels = [];
-      for (var element in data.docs) {
-        var et = element.data() as Map<String, dynamic>;
-        listHotels.add(HotelsModel.fromJson(et));
-      }
-      for (var element in listHotels) {
-        print(element.id);
-      }
-      return DataSuccess(listHotels);
-    } catch (e) {
-      print('data error $e');
-      return const DataError(null);
-    }
+  Future<DataState<List<HotelsEntity>, void>> getAllReservation() {
+    // TODO: implement getAllReservation
+    throw UnimplementedError();
   }
+
+  // @override
+  // Future<DataState<List<HotelsEntity>, void>> getAllReservation() async {
+  //   try {
+  //     final data = await _cloudService.getAllReservation();
+  //     List<HotelsEntity> listHotels = [];
+  //     for (var element in data.docs) {
+  //       var et = element.data() as Map<String, dynamic>;
+  //       listHotels.add(HotelsModel.fromJson(et));
+  //     }
+  //     for (var element in listHotels) {
+  //       print(element.id);
+  //     }
+  //     return DataSuccess(listHotels);
+  //   } catch (e) {
+  //     print('data error $e');
+  //     return const DataError(null);
+  //   }
+  // }
 }

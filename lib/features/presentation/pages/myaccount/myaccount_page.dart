@@ -28,7 +28,7 @@ class MyAccountPage extends StatelessWidget {
                 radius: 74,
                 backgroundColor: Colors.blue,
                 child: CircleAvatar(
-                    radius: 70, backgroundImage: AssetImage('assets/poto.png')),
+                    radius: 70,child: Icon(Icons.person, size: 84, )),
               ),
               Expanded(
                 child: Container(

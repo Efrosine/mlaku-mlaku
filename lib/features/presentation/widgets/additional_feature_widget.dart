@@ -8,7 +8,7 @@ class AdditionalFeatureWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox.fromSize(
-      size: Size.fromHeight(176),
+      size: Size.fromHeight(190),
       child: GridView.builder(
           itemCount: 10,
           padding: EdgeInsets.symmetric(horizontal: 16),

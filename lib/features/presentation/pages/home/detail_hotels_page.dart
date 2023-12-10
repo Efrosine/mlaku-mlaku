@@ -110,7 +110,7 @@ class DetailHotelsPageContent extends StatelessWidget {
                 BoxShadow(blurRadius: 8, spreadRadius: 1, color: Colors.blueGrey)
               ]),
               child: Container(
-                height: 100,
+                height: 110,
                 color: Colors.white,
                 padding: EdgeInsets.all(16),
                 child: Row(
