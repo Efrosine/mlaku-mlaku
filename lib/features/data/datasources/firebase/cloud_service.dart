@@ -26,12 +26,12 @@ class CloudService {
         .set(data.toJson());
   }
 
-   Stream<QuerySnapshot> getAllReservation()  {
+  Stream<QuerySnapshot> getAllReservation() {
     print('get service');
-    return  _db
-        .collection('users')
-        .doc(_prefs.getString('uid'))
-        .collection('reservation')
-        .snapshots();
+    return _db.collection('users').doc(_prefs.getString('uid')).collection('reservation').snapshots();
+  }
+
+  Stream<DocumentSnapshot<Map<String, dynamic>>> getDataUser() {
+    return _db.collection('users').doc(_prefs.getString('uid')).snapshots();
   }
 }

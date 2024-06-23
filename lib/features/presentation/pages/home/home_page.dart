@@ -1,6 +1,8 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:mlaku_mlaku/features/data/datasources/firebase/cloud_service.dart';
+import 'package:mlaku_mlaku/injection_container.dart';
 
 import '../../widgets/additional_feature_widget.dart';
 import '../../widgets/main_feature_widget.dart';
@@ -9,7 +11,9 @@ import '../../widgets/sugestion_hotels_widget.dart';
 import '../../widgets/wallet_widget.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+  HomePage({super.key});
+
+  CloudService db = sl();
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +31,11 @@ class HomePage extends StatelessWidget {
       preferredSize: Size.fromHeight(50),
       child: AppBar(
         automaticallyImplyLeading: false,
-        title: Text('Hi, Fajar'),
+        title: StreamBuilder(
+            stream: db.getDataUser(),
+            builder: (context, snapshot) {
+              return Text('Hi, ${snapshot.data?['name'] ?? 'User'}');
+            }),
         actions: [
           IconButton(
               onPressed: () {},

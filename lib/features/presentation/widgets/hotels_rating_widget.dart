@@ -9,16 +9,16 @@ class HotelsRating extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Icon(
+        const Icon(
           Icons.local_activity,
           color: Colors.blue,
         ),
-        SizedBox(width: 8),
+        const SizedBox(width: 8),
         Text(
           '$rating/10',
-          style: TextStyle(color: Colors.blue, fontWeight: FontWeight.w500),
+          style: const TextStyle(color: Colors.blue, fontWeight: FontWeight.w500),
         ),
-        SizedBox(width: 4),
+        const SizedBox(width: 4),
         Text(desc == null ? '' : desc!)
       ],
     );

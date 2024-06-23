@@ -15,7 +15,7 @@ class DetailHotelsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider<BookingHotelsBloc>.value(
       value: BlocProvider.of<BookingHotelsBloc>(context),
-      child: DetailHotelsPageContent(),
+      child: const DetailHotelsPageContent(),
     );
   }
 }
@@ -43,7 +43,7 @@ class DetailHotelsPageContent extends StatelessWidget {
           var entity = state.hotelsEntity!;
           return Scaffold(
             body: ListView(
-              padding: EdgeInsets.only(bottom: 124),
+              padding: const EdgeInsets.only(bottom: 124),
               children: [
                 Container(
                   width: double.infinity,
@@ -58,26 +58,26 @@ class DetailHotelsPageContent extends StatelessWidget {
                     children: [
                       Text(
                         entity.name!,
-                        style: TextStyle(fontWeight: FontWeight.w500, fontSize: 18),
+                        style: const TextStyle(fontWeight: FontWeight.w500, fontSize: 18),
                       ),
-                      SizedBox(height: 8),
+                      const SizedBox(height: 8),
                       LabelNStarWidget(countStar: entity.stars!),
                       // SizedBox(height: 8),
                       // LocationNDistance(location: entity.location),
                     ],
                   ),
                 ),
-                Divider(thickness: 2, height: 16),
+                const Divider(thickness: 2, height: 16),
                 Padding(
                   padding: const EdgeInsets.all(16),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
+                      const Text(
                         'Ratings',
                         style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16),
                       ),
-                      SizedBox(height: 8),
+                      const SizedBox(height: 8),
                       HotelsRating(
                         rating: entity.rating ?? 0.0,
                         desc: 'Convinien',
@@ -85,17 +85,17 @@ class DetailHotelsPageContent extends StatelessWidget {
                     ],
                   ),
                 ),
-                Divider(thickness: 2, height: 16),
+                const Divider(thickness: 2, height: 16),
                 Padding(
                   padding: const EdgeInsets.all(16),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
+                      const Text(
                         'Description',
                         style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16),
                       ),
-                      SizedBox(height: 8),
+                      const SizedBox(height: 8),
                       Text(
                         entity.description ?? 'null',
                         textAlign: TextAlign.justify,
@@ -106,30 +106,30 @@ class DetailHotelsPageContent extends StatelessWidget {
               ],
             ),
             bottomSheet: Container(
-              decoration: BoxDecoration(boxShadow: [
+              decoration: const BoxDecoration(boxShadow: [
                 BoxShadow(blurRadius: 8, spreadRadius: 1, color: Colors.blueGrey)
               ]),
               child: Container(
                 height: 110,
                 color: Colors.white,
-                padding: EdgeInsets.all(16),
+                padding: const EdgeInsets.all(16),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text('Price'),
-                        SizedBox(height: 4),
+                        const Text('Price'),
+                        const SizedBox(height: 4),
                         Text(
                           entity.getPrice,
-                          style: TextStyle(
+                          style: const TextStyle(
                               fontWeight: FontWeight.w500,
                               fontSize: 18,
                               color: Color(0xFFF56E09)),
                         ),
-                        SizedBox(height: 4),
-                        Text('Inclusive of Taxes'),
+                        const SizedBox(height: 4),
+                        const Text('Inclusive of Taxes'),
                       ],
                     ),
                     ElevatedButton(
@@ -139,13 +139,13 @@ class DetailHotelsPageContent extends StatelessWidget {
                             .add(BookingReservationEvent(entity: entity));
                       },
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Color(0xFFF56E09),
+                        backgroundColor: const Color(0xFFF56E09),
                         foregroundColor: Colors.white,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8),
                         ),
                       ),
-                      child: Text(
+                      child: const Text(
                         'Purchase',
                         // style: TextStyle(color: Colors.white),
                       ),
